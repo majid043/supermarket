@@ -1,6 +1,7 @@
 package com.supermarket.bootstrap;
 
 import com.supermarket.enums.ExecutionModes;
+import com.supermarket.executionmode.AbstractExecutionModeHandler;
 import com.supermarket.inventory.ManageInventory;
 import com.supermarket.offers.ManageOffer;
 import com.supermarket.util.CommonUtils;
@@ -18,6 +19,12 @@ public class StartUpService {
 			}
 			ManageInventory.getInstance().loadInventoryFromFile(args[0]);
 			ManageOffer.getInstance().loadOffers();
+			AbstractExecutionModeHandler executionModeHandler = AbstractExecutionModeHandler.getInstance(mode);
+			if (ExecutionModes.FILE == mode) {
+				executionModeHandler.execute(args[1]);
+			} else {
+				executionModeHandler.execute(null);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
