@@ -17,80 +17,72 @@ Each row should have the following format:
 
 `Ex. inventory.csv`
 
-| :--------| :------- | :------- |
-| `soap`   , `10.00`  , `100`    |
-| `bread`  , `2.50`   , `10`     |
+#### | :--------| :------- | :------- |
+#### | `soap`   , `10.00`  , `100`    |
+#### | `bread`  , `2.50`   , `10`     |
 
 Note: You are not expected to update values in the file during runtime.
 
-Offers
-Your shopping cart should support the following offers:
-	1. Buy 2 Get One Free ( buy_2_get_1_free ): When applied to an item, every third item added is free;
-	2. Buy 1 Get 50% Off on next ( buy_1_get_half_off ): Every second item is charged at half the price.
+## Offers
+#### Your shopping cart should support the following offers:
+#### 	1. Buy 2 Get One Free ( buy_2_get_1_free ): When applied to an item, every third item added is free;
+#### 	2. Buy 1 Get 50% Off on next ( buy_1_get_half_off ): Every second item is charged at half the price.
 
-Running the program
+## Running the program
 
-The application should allow input in two different ways:
-	1. if only the inventory argument is provided, the application starts an interactive prompt, where the actions can be typed in;
-	2. if the commands file path is provided as a second argument, such a file is parsed and the commands in it executed one by one.
+#### The application should allow input in two different ways:
+#### 	1. if only the inventory argument is provided, the application starts an interactive prompt, where the actions can be typed in;
+#### 	2. if the commands file path is provided as a second argument, such a file is parsed and the commands in it executed one by one.
 
-In both cases, the commands are separated by a new line. If two offers are applied at the same product, only the more recent one stands.
+#### In both cases, the commands are separated by a new line. If two offers are applied at the same product, only the more recent one stands.
 
-##Interactive mode
+## Interactive mode
 
-$ ./supermarket inventory.csv
-$ checkout
-empty cart
-$ add soap 5
-added soap 5
-$ add bread 1
-added bread 1
-$ bill
-subtotal:52.50, discount:0.00, total:52.50
-$ offer buy_2_get_1_free soap
-offer added
-$ bill
-subtotal:52.50, discount:10.00, total:42.50
-$ add soap 1
-added soap 1
-$ bill
-subtotal:62.50, discount:20.00, total:42.50
-$ offer buy_1_get_half_off bread
-offer added
-$ add bread 1
-added bread 1
-$ bill
-subtotal:65.00, discount:21.25, total:43.75
-$ checkout
-done
+#### $ ./supermarket inventory.csv
+#### $ checkout
+#### empty cart
+#### $ add soap 5
+#### added soap 5
+#### $ add bread 1
+#### added bread 1
+#### $ bill
+#### subtotal:52.50, discount:0.00, total:52.50
+#### $ offer buy_2_get_1_free soap
+#### offer added
+#### $ bill
+#### subtotal:52.50, discount:10.00, total:42.50
+#### $ add soap 1
+#### added soap 1
+#### $ bill
+#### subtotal:62.50, discount:20.00, total:42.50
+#### $ offer buy_1_get_half_off bread
+#### offer added
+#### $ add bread 1
+#### added bread 1
+#### $ bill
+#### subtotal:65.00, discount:21.25, total:43.75
+#### $ checkout
+#### done
 
-##File mode
+## File mode
 
-$ cat commands.txt
-checkout
-add soap 5
-add bread 1
-bill
-offer buy_2_get_1_free soap
-bill
-add soap 1
-bill
-offer buy_1_get_half_off bread
-add bread 1
-bill
-checkout
-$ ./supermarket inventory.csv commands.txt
+#### $ cat commands.txt
+#### checkout
+#### add soap 5
+#### add bread 1
+#### bill
+#### offer buy_2_get_1_free soap
+#### bill
+#### add soap 1
+#### bill
+#### offer buy_1_get_half_off bread
+#### add bread 1
+#### bill
+#### checkout
+#### $ ./supermarket inventory.csv commands.txt
 
-##
-## Environment Setup
-
-For setting context path for this project, you will need to update the following variable to application-{active profile}.yaml file
-
-`server.contextPath`
-
-Currently active profile is `prod` in pom.xml file
 ## 
 ## Tech Stack
 
-**Backend:** Java, Spring Boot
+**Backend:** Java
 
