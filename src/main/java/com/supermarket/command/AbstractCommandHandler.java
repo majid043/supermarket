@@ -19,6 +19,12 @@ public abstract class AbstractCommandHandler {
 		case OFFER:
 			commandHandler = new ApplyOfferImpl();
 			break;
+		case BILL:
+			commandHandler = new GenerateBillImpl();
+			break;
+		case CHECKOUT:
+			commandHandler = new CheckoutImpl();
+			break;
 		}
 		return commandHandler;
 	}
